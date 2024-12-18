@@ -7,12 +7,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("first app"),
+        title: const Text(
+          "first app",
+          style: TextStyle(fontSize: 30),
+        ),
         backgroundColor: Colors.red,
       ),
       body: Center(
-        child: Container(
-          child: Text("name: $name\nage: $age"),
+        child: Text(
+          "name: $name\nage: $age",
+          style: const TextStyle(fontSize: 30),
         ),
       ),
       drawer: Drawer(),
