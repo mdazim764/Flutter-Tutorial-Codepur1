@@ -78,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       InkWell(
                         onTap: () async{
                           setState(() {
-                            changeBtn=true;
+                            changeBtn=changeBtn?false:true;
                           });
                           await Future.delayed(Duration(seconds: 1));
                           Navigator.pushNamed(context, MyRoutes.homeRoute);
