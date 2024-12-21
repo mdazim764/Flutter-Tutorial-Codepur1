@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:untitled2/pages/login_page.dart';
+import 'package:untitled2/utils/myroutes.dart';
 
 import 'pages/home_page.dart';
+import 'pages/login_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,8 +31,8 @@ class MyApp extends StatelessWidget {
       // initialRoute: "/home",
       routes: {
         // '/' is the default activity [page] that can displays first
-        "/":(context)=>LoginPage(),
-        "/home":(context)=>HomePage()
+        MyRoutes.loginRoute:(context)=>const LoginPage(),
+        MyRoutes.homeRoute:(context)=>HomePage()
       },
     );
   }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   final int age = 21;
   var name = 'azim';
+
+  HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
