@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled2/utils/myroutes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  String uname="";
+  bool changeBtn=false;
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -31,7 +39,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text("Welcome",
+                  Text("Welcome $uname",
                   style:
                   TextStyle(
                     fontSize: 29,
@@ -49,7 +57,12 @@ class LoginPage extends StatelessWidget {
                         decoration: const InputDecoration(
                           hintText: "Enter username",
                           labelText: "UserName",
-                        ),
+                        ),onChanged: (value){
+                          uname=value;
+                          setState(() {
+
+                          });
+                      },
                       ),
                       TextFormField(
                         obscureText: true,
@@ -62,14 +75,44 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 40,
                       ),
-                      ElevatedButton(
-                          onPressed:(){
-                            // print("welcome to login page");
-                            Navigator.pushNamed(context, MyRoutes.homeRoute);
-                          },
-                        style: TextButton.styleFrom(minimumSize: Size(140, 50),backgroundColor: Colors.blueGrey),
-                          child: const Text("Login",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
+                      InkWell(
+                        onTap: () async{
+                          setState(() {
+                            changeBtn=true;
+                          });
+                          await Future.delayed(Duration(seconds: 1));
+                          Navigator.pushNamed(context, MyRoutes.homeRoute);
+                        },
+                        // splashColor: Colors.blue,
+                        // hoverColor: Colors.white,
+                        // highlightColor: Colors.red,
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: changeBtn ? 50: 150,
+                          height: 50,
+                          alignment: Alignment.center,
+                          child: changeBtn?Icon(Icons.done,color: Colors.white,): Text("Login",style: TextStyle(
+                            fontSize: 20,fontWeight: FontWeight.bold
+                          ),
+                          ),
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              // shape: changeBtn
+                              //     ? BoxShape.circle
+                              //     : BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(changeBtn?50:10)
+                            ),
+
                         ),
+                      )
+                      // ElevatedButton(
+                      //     onPressed:(){
+                      //       // print("welcome to login page");
+                      //       Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      //     },
+                      //   style: TextButton.styleFrom(minimumSize: Size(140, 50),backgroundColor: Colors.blueGrey),
+                      //     child: const Text("Login",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
+                      //   ),
                     ],
                   ),
                 )
