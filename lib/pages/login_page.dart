@@ -39,7 +39,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('Login Page'),
+            backgroundColor: Colors.deepPurpleAccent,
+            title: const Text('Login Page',style: TextStyle(color: Colors.white),),
           ),
           body: SingleChildScrollView(
             // Ensures scrolling if content overflows

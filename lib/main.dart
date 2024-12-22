@@ -27,8 +27,9 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.light,
           primarySwatch: Colors.red),
+      debugShowCheckedModeBanner: false,
       // it changed the default activity (page) 'initial means first'
-      // initialRoute: "/home",
+      initialRoute: "/home",
       routes: {
         // '/' is the default activity [page] that can displays first
         MyRoutes.loginRoute:(context)=>const LoginPage(),
