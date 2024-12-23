@@ -2,12 +2,12 @@ class CatalogModel{
  static final items = [
     Items(
         id: 1,
-        name: "name",
-        desc: "desc",
+        name: "iPhone 12 Pro",
+        desc: "Apple iPhone 12th generation",
         price: 9999,
         color: "#33505a",
         image:
-        "https://images.pexels.com/photos/2787341/pexels-photo-2787341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc")
   ];
 }
 
