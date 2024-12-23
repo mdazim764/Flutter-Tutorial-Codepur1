@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled2/utils/myroutes.dart';
 
+import '../widgets/MyThemes.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -31,16 +33,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.purple,
-          // fontFamily: GoogleFonts.lato().fontFamily,
-          textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
-            bodyMedium: GoogleFonts.oswald(textStyle: textTheme.bodyMedium),
-          ),
-        ),
+      themeMode: ThemeMode.light,
+      theme: MyThemes.lightTheme(context),
+      darkTheme: MyThemes.darkTheme(context),
         home: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.deepPurpleAccent,
-            title: const Text('Login Page',style: TextStyle(color: Colors.white),),
+
+            title: const Text('Login Page'),
           ),
           body: SingleChildScrollView(
             // Ensures scrolling if content overflows

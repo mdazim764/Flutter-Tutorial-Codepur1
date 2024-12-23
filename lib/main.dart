@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled2/utils/myroutes.dart';
+import 'package:untitled2/widgets/MyThemes.dart';
 
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
@@ -14,19 +15,11 @@ void main() {
 class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     return MaterialApp(
       // home: HomePage(),
       themeMode: ThemeMode.light,
-      theme: ThemeData(primarySwatch: Colors.purple,
-      // fontFamily: GoogleFonts.lato().fontFamily,
-        textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
-          bodyMedium: GoogleFonts.oswald(textStyle: textTheme.bodyMedium),
-        ),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.light,
-          primarySwatch: Colors.red),
+      theme: MyThemes.lightTheme(context),
+      darkTheme: MyThemes.darkTheme(context),
       debugShowCheckedModeBanner: false,
       // it changed the default activity (page) 'initial means first'
       initialRoute: "/home",

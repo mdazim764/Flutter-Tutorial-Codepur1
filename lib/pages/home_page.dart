@@ -13,11 +13,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
 
         title: const Text(
-          "first app",
-          style: TextStyle(fontSize: 30,color: Colors.white),
+          "Catalog App",
+          style: TextStyle(fontSize: 25,),
         ),
-        backgroundColor: Colors.deepPurpleAccent,
-        foregroundColor: Colors.white,
+
       ),
       body: Center(
         child: Text(
