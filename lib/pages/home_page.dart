@@ -55,23 +55,38 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(16.0),
         child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
             ? GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                ),
                 itemBuilder: (context, index) {
                   final item = CatalogModel.items[index];
                   return Card(
                     clipBehavior: Clip.antiAlias,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       child: GridTile(
-                        header: Text(item.name),
+                        header: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: const BoxDecoration(
+                            color: Colors.deepPurple
+                          ),
+                          child: Text(item.name,style: const TextStyle(color: Colors.white),),
+                        ),
+                        footer: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: const BoxDecoration(
+                              color: Colors.black
+                          ),
+                          child: Text(item.price.toString(),style: const TextStyle(color: Colors.white),),
+                        ),
                           child: Image.network(item.image),
-                        footer: Text(item.price.toString()),
                       ),
                   );
                 },
                 itemCount: CatalogModel.items.length,
               )
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               ),
       ),
