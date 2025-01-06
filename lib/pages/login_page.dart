@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled2/utils/myroutes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../widgets/MyThemes.dart';
 
@@ -31,10 +32,9 @@ class _LoginPageState extends State<LoginPage> {
   }
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+
     return MaterialApp(
-      themeMode: ThemeMode.light,
-      theme: MyThemes.lightTheme(context),
+      color: context.canvasColor,
       darkTheme: MyThemes.darkTheme(context),
         home: Scaffold(
           appBar: AppBar(
@@ -49,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                   "assets/images/login.png",
                   fit: BoxFit.cover,
                   height: 300,
+
                 ),
                 const SizedBox(
                   height: 20,
@@ -110,13 +111,14 @@ class _LoginPageState extends State<LoginPage> {
                           height: 40,
                         ),
                         Material(
-                          color: Colors.blue,
+                          color: Theme.of(context).colorScheme.primary,
                           borderRadius: BorderRadius.circular(changeBtn?50:10),
 
                           child: InkWell(
 
                             onTap: () =>moveToHome(context),
                             splashColor: Colors.greenAccent,
+
                             // hoverColor: Colors.white,
                             // highlightColor: Colors.red,
                             child: AnimatedContainer(
@@ -125,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                               height: 50,
                               alignment: Alignment.center,
                               child: changeBtn?Icon(Icons.done,color: Colors.white,): Text("Login",style: TextStyle(
-                                fontSize: 20,fontWeight: FontWeight.bold
+                                fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white
                               ),
                               ),
                               // decoration: BoxDecoration(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled2/pages/cart_page.dart';
 import 'package:untitled2/utils/myroutes.dart';
 import 'package:untitled2/widgets/MyThemes.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // home: HomePage(),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: MyThemes.lightTheme(context),
       darkTheme: MyThemes.darkTheme(context),
       debugShowCheckedModeBanner: false,
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/' is the default activity [page] that can displays first
         MyRoutes.loginRoute:(context)=>const LoginPage(),
-        MyRoutes.homeRoute:(context)=>HomePage()
+        MyRoutes.homeRoute:(context)=>HomePage(),
+        MyRoutes.cartRoute:(context)=>CartPage()
       },
     );
   }

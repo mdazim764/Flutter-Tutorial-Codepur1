@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled2/widgets/MyThemes.dart';
 import 'package:velocity_x/velocity_x.dart';
-
+import 'package:flutter_lorem/flutter_lorem.dart';
 import '../models/catalog.dart';
 class HomeDetailPage extends StatelessWidget {
   final Items catalog;
@@ -11,22 +11,26 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyThemes.creamColor,
-      appBar: AppBar(),
+      backgroundColor: context.canvasColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       bottomNavigationBar:  Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
           children: [
             "\$${catalog.price}".text.bold.xl4.red800.make(),
-            ElevatedButton(onPressed: (){},
+            ElevatedButton.icon(onPressed: (){},
+              icon: const Icon(Icons.shopping_cart, color: Colors.white),
               style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(MyThemes.darkBluishColor),
-                  foregroundColor: WidgetStateProperty.all(Colors.white)
+                backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.primary),
+                foregroundColor: WidgetStateProperty.all(Colors.white),
               ),
-              child: "Buy".text.xl.bold.make(),
-            ).wh(100, 50)
+              label: "Add".text.xl.bold.make(),
+
+            ).wh(150, 50)
           ],
         ).p32(),
       ),
@@ -43,12 +47,14 @@ class HomeDetailPage extends StatelessWidget {
                   arcType: VxArcType.convey,
                   edge: VxEdge.top,
                   child: Container(
-                    color: Colors.white,
+                    color: context.cardColor,
                     width: context.screenWidth,
                     child: Column(
                       children: [
-                        catalog.name.text.xl4.color(MyThemes.darkBluishColor).bold.make(),
+                        catalog.name.text.xl4.color(Theme.of(context).colorScheme.primary).bold.make(),
                         catalog.desc.text.textStyle(context.captionStyle).xl.make(),
+                        10.heightBox,
+                        lorem(paragraphs: 1, words: 40).text.textStyle(context.captionStyle).make().p16().expand()
                       ],
                     ).py64(),
                               ),
