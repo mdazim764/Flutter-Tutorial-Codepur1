@@ -2,9 +2,10 @@ import 'package:untitled2/models/Cart.dart';
 
 class CatalogModel {
 
-  static final catModel=CatalogModel._internal();
-  CatalogModel._internal();
-  factory CatalogModel()=>catModel;
+  // converted to single tern for testing
+  // static final catModel=CatalogModel._internal();
+  // CatalogModel._internal();
+  // factory CatalogModel()=>catModel;
 
   static List<Items> items=[];
 
