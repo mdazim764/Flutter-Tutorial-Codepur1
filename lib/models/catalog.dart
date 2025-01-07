@@ -2,10 +2,10 @@ class CatalogModel {
   static List<Items> items=[];
 
   //Get Item by id
- static Items getById(int id)=>items.firstWhere((element)=>element.id==id,orElse: null);
+  Items getById(int id)=>items.firstWhere((element)=>element.id==id,orElse: null);
 
 //Get Item by position
- static Items getByPosition(int pos)=>items[pos];
+  Items getByPosition(int pos)=>items[pos];
 }
 
 class Items {
