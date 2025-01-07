@@ -1,4 +1,11 @@
+import 'package:untitled2/models/Cart.dart';
+
 class CatalogModel {
+
+  static final catModel=CatalogModel._internal();
+  CatalogModel._internal();
+  factory CatalogModel()=>catModel;
+
   static List<Items> items=[];
 
   //Get Item by id
