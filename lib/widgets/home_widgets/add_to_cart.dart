@@ -6,19 +6,17 @@ import '../../models/catalog.dart';
 
 class AddToCart extends StatelessWidget {
   final Items catalog;
-  AddToCart({super.key, required this.catalog});
+  const AddToCart({super.key, required this.catalog});
 
 
   @override
   Widget build(BuildContext context) {
 
-    final CartModel _cart=(VxState.store as MyStore).cart;
-
-    bool isInCart=_cart.items?.contains(catalog)??false;
-
     return VxConsumer(
         builder: (context,Object? _,VxStatus? __) {
-    return ElevatedButton.icon(onPressed: (){
+          final CartModel _cart=(VxState.store as MyStore).cart;
+          bool isInCart=_cart.items?.contains(catalog)??false;
+          return ElevatedButton.icon(onPressed: (){
       if(!isInCart) {
         isInCart = isInCart.toggle();
         AddMutation(catalog);
@@ -36,7 +34,7 @@ class AddToCart extends StatelessWidget {
 
     );
         },
-      mutations: {AddMutation,RemoveMutation},
+      mutations: const {AddMutation,RemoveMutation},
     );
   }
 }
