@@ -1,4 +1,7 @@
 import 'package:untitled2/models/catalog.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import '../core/store.dart';
 
 class CartModel {
 
@@ -35,5 +38,28 @@ class CartModel {
   //Remove Item
   void remove(Items item) {
     _itemIds.remove(item.id);
+  }
+}
+
+class AddMutation extends VxMutation<MyStore> {
+  final Items item;
+
+  AddMutation(this.item);
+
+  @override
+  perform() {
+    // store?.cart._itemIds.add(item.id);
+    store?.cart.add(item);
+  }
+}
+
+class RemoveMutation extends VxMutation<MyStore> {
+  final Items item;
+
+  RemoveMutation(this.item);
+
+  @override
+  perform() {
+    store?.cart.remove(item);
   }
 }
